@@ -10,8 +10,13 @@ class String(models.Model):
     )
     string_name = models.CharField(max_length=250)
     type = models.CharField(max_length=250, choices=TYPE_CHOICES, default='p')
+    scale = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True, default=None)
     gauge = models.DecimalField(max_digits=9, decimal_places=2)
     tension = models.DecimalField(max_digits=9, decimal_places=2)
+
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
 
 
 
@@ -28,11 +33,13 @@ class SetupStorage(models.Model):
     is_multi_scale = models.BooleanField(db_default=True)
     string_type = models.CharField(max_length=250)
     selected_tuning = models.CharField(max_length=250) 
-
     total_tension = models.DecimalField(max_digits=9, decimal_places=2)
     strings = models.ManyToManyField(String, related_name="strings")
-
     is_public = models.BooleanField(default=False)
+    is_varified = models.BooleanField(default=False)
+
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.user.email}-----Setup ID{self.id}-----{self.setup_name}"
