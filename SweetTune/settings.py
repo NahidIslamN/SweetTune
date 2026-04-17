@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',    
     'chats',
-    'django_celery_beat',
+    # 'django_celery_beat',
     'profiles',
     'databases_models',
 ]

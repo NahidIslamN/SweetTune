@@ -9,7 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/auth/', include('auths.urls')),
     path('api/v1/', include('chats.urls')),
-    path('api/v1/profiles/', include('profiles.urls'))
+    path('api/v1/profiles/', include('profiles.urls')),
+    path('api/v1/users/', include('databases_models.urls')),
 ]
 # path('blog/', include('blog.urls'))
 
