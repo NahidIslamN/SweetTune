@@ -1,4 +1,5 @@
 amqp
+amazon-paapi5
 asgiref
 attrs
 autobahn

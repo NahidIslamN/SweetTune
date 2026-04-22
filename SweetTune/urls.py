@@ -11,8 +11,9 @@ urlpatterns = [
     path('api/v1/', include('chats.urls')),
     path('api/v1/profiles/', include('profiles.urls')),
     path('api/v1/users/', include('databases_models.urls')),
+    path('api/v1/amazon_api/', include('amazon_api.urls'))
 ]
-# path('blog/', include('blog.urls'))
+# path('blog/', include('amazon_api.urls'))
 
 if settings.DEBUG:
        

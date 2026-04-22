@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     # 'django_celery_beat',
     'profiles',
     'databases_models',
+    'amazon_api'
 ]
 
 
