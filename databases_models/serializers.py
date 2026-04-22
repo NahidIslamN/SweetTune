@@ -69,6 +69,7 @@ class LegentSetupStorageSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "setup_name",
+            'category',
             "instrument_type",
             "total_strings",
             "scale_sength",

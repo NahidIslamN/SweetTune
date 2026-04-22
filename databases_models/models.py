@@ -27,6 +27,7 @@ class SetupStorage(models.Model):
     )
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     setup_name = models.CharField(unique=True, null=True, blank=True)
+    category = models.CharField(max_length=250, null=True, blank=True)
     instrument_type = models.CharField(max_length=250, choices=CHOICES)
     total_strings = models.IntegerField()
     scale_sength = models.DecimalField(max_digits=9, decimal_places=2)

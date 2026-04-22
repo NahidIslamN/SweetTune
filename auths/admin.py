@@ -4,6 +4,7 @@ from .models import CustomUser, OtpTable
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
+admin.site.register(OtpTable)
 
 
 @admin.register(CustomUser)
