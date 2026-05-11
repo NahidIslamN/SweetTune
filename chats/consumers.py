@@ -10,7 +10,6 @@ from channels.db import database_sync_to_async as _database_sync_to_async
 from django.core.files.base import ContentFile
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
-from .models import Chat, Message, MessageFiles
 from channels.consumer import AsyncConsumer
 from channels.exceptions import StopConsumer
 
@@ -277,6 +276,8 @@ class UpdateChatConsumerMessageGet(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def save_message_to_database(self, message_text, files, chat_id):
+        from .models import Chat, Message, MessageFiles
+
         chat = Chat.objects.get(id=chat_id)
         msg_obj = Message.objects.create(chat=chat, sender=self.user, text=message_text or None)
         for f in files:
@@ -293,6 +294,8 @@ class UpdateChatConsumerMessageGet(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def get_chat_participants(self, chat_id):
+        from .models import Chat
+
         chat = Chat.objects.get(id=chat_id)
         return list(chat.participants.values_list("id", flat=True))
 
